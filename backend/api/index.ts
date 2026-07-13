@@ -34,6 +34,15 @@ async function bootstrap() {
 }
 
 export default async (req: any, res: any) => {
-  await bootstrap();
-  server(req, res);
+  try {
+    await bootstrap();
+    server(req, res);
+  } catch (err: any) {
+    console.error("Vercel Serverless Bootstrap Error:", err);
+    res.status(500).json({
+      error: "Vercel Serverless Bootstrap Error",
+      message: err.message,
+      stack: err.stack,
+    });
+  }
 };
