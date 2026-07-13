@@ -21,9 +21,7 @@ import { ContactModule } from './contact/contact.module';
     }),
     
     // Connect to MongoDB
-    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://localhost:27017/qualitydesk', {
-      serverSelectionTimeoutMS: 3000,
-    }),
+    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb+srv://quality_desk_admin:1fQ2LYveGs8mPqwV@qulality-desk-user.ryqqb8i.mongodb.net/?appName=qulality-desk-user'),
     
     // Core Business Modules
     AuthModule,
