@@ -14,7 +14,9 @@ async function bootstrap() {
     const maskedUri = rawUri.replace(/:([^:@]+)@/, ':******@');
     console.log(`[Vercel Serverless] Initializing NestJS App. Target Database URI: ${maskedUri}`);
 
-    nestApp = await NestFactory.create(AppModule, new ExpressAdapter(server));
+    nestApp = await NestFactory.create(AppModule, new ExpressAdapter(server), {
+      abortOnError: false,
+    });
     
     // Enable CORS for frontend requests
     nestApp.enableCors({
