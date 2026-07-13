@@ -21,7 +21,9 @@ import { ContactModule } from './contact/contact.module';
     }),
     
     // Connect to MongoDB
-    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb+srv://quality_desk_admin:1fQ2LYveGs8mPqwV@qulality-desk-user.ryqqb8i.mongodb.net/?appName=qulality-desk-user'),
+    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb+srv://quality_desk_admin:1fQ2LYveGs8mPqwV@qulality-desk-user.ryqqb8i.mongodb.net/?appName=qulality-desk-user', {
+      serverSelectionTimeoutMS: 3000,
+    }),
     
     // Core Business Modules
     AuthModule,

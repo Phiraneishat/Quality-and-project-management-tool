@@ -10,7 +10,7 @@ let nestApp: any;
 
 async function bootstrap() {
   if (!isAppInitialized) {
-    const rawUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/qualitydesk';
+    const rawUri = process.env.MONGODB_URI || 'mongodb+srv://quality_desk_admin:1fQ2LYveGs8mPqwV@qulality-desk-user.ryqqb8i.mongodb.net/?appName=qulality-desk-user';
     const maskedUri = rawUri.replace(/:([^:@]+)@/, ':******@');
     console.log(`[Vercel Serverless] Initializing NestJS App. Target Database URI: ${maskedUri}`);
 
