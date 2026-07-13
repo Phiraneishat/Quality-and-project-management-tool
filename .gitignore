@@ -1,0 +1,34 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build outputs
+dist/
+build/
+out/
+
+# IDE files and workspace logs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.gemini/
+.system_generated/
+*.log
+
+# Environmental variables
+.env
+.env.local
+.env.production
+.env.development
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Upload directories
+backend/uploads/
