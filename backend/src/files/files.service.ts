@@ -14,8 +14,20 @@ export class FilesService {
     @InjectModel(FileDocument.name) private fileModel: Model<FileDocument>,
   ) {
     // Ensure upload directory exists
-    if (!fs.existsSync(this.uploadDir)) {
-      fs.mkdirSync(this.uploadDir, { recursive: true });
+    try {
+      if (!fs.existsSync(this.uploadDir)) {
+        fs.mkdirSync(this.uploadDir, { recursive: true });
+      }
+    } catch (err) {
+      console.warn(`Could not create uploads directory at ${this.uploadDir}, falling back to /tmp:`, err.message);
+      this.uploadDir = path.join('/tmp', 'uploads');
+      try {
+        if (!fs.existsSync(this.uploadDir)) {
+          fs.mkdirSync(this.uploadDir, { recursive: true });
+        }
+      } catch (tmpErr) {
+        console.error('Failed to create fallback tmp upload directory:', tmpErr.message);
+      }
     }
   }
 
