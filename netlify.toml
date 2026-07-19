@@ -1,18 +1,4 @@
 [build]
-  publish = "frontend/dist"
+  base = "frontend"
+  publish = "dist"
   command = "npm run build"
-
-[functions]
-  directory = "backend/api"
-  node_bundler = "esbuild"
-  external_node_modules = ["bcrypt"]
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/index"
-  status = 200
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
