@@ -3,13 +3,13 @@
   command = "npm run build"
 
 [functions]
-  directory = "backend/dist/api"
+  directory = "backend/api"
   node_bundler = "esbuild"
   external_node_modules = ["bcrypt"]
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/api"
+  to = "/.netlify/functions/index"
   status = 200
 
 [[redirects]]
